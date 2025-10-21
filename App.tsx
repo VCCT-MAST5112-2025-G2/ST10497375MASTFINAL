@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { StyleSheet, Text, View, TextInput, SafeAreaView, ScrollView, TouchableOpacity } from "react-native";
 import { StatusBar } from "expo-status-bar";
-
+// defining the menu item types in order to be able to use them
 type MenuItem = {
   name: string;
   description: string;
@@ -57,7 +57,7 @@ export default function App() {
       <StatusBar style="auto" />
       <Text style={styles.title}>Chef's menu</Text>
 
-      {/* input fields for the menu items */}
+      {/* input fields for the menu items which helps the user add all necessary info where it needs to be*/}
       <TextInput style={styles.input} placeholder="Name" value={name} onChangeText={setName} />
       <TextInput style={styles.input} placeholder="Description" value={description} onChangeText={setDescription} />
       <TextInput style={styles.input} placeholder="Course" value={course} onChangeText={setCourse} />
@@ -80,11 +80,11 @@ export default function App() {
       <TouchableOpacity style={styles.addButton} onPress={addMenuItem}>
         <Text style={styles.addButtonText}>Add Item</Text>
       </TouchableOpacity>
-
+          {/* this helps to calculate the average price of the total items */}
       <Text style={styles.label}>
         Menu ({menu.length}) — Avg price: R{getAveragePrice().toFixed(2)}
       </Text>
-
+          {/* scrol view helps to display everything the user adds to the menu */}
       <ScrollView style={styles.menuList}>
         {menu.map((m, idx) => (
           <View key={idx} style={styles.menuItem}>
